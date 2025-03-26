@@ -67,6 +67,7 @@ supabase functions deploy reverse-string
 
 After deployment, you can invoke the function using:
 
+##### javascript
 ```javascript
 // Example using JavaScript fetch API
 const { data, error } = await fetch('https://your-project-ref.supabase.co/functions/v1/reverse-string', {
@@ -79,6 +80,33 @@ const { data, error } = await fetch('https://your-project-ref.supabase.co/functi
 }).then((res) => res.json())
 
 console.log(data) // { reversedText: "dlroW olleH" }
+```
+
+##### flutter/dart
+```dart
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
+Future<void> reverseString() async {
+  const String supabaseUrl = 'https://your-project-ref.supabase.co/functions/v1/reverse-string';
+  const String supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY';
+
+  final response = await http.post(
+    Uri.parse(supabaseUrl),
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer $supabaseAnonKey',
+    },
+    body: jsonEncode({'text': 'Hello World'}),
+  );
+
+  if (response.statusCode == 200) {
+    final data = jsonDecode(response.body);
+    print(data); // { reversedText: "dlroW olleH" }
+  } else {
+    print('Error: ${response.body}');
+  }
+}
 ```
 
 ## Function Structure
