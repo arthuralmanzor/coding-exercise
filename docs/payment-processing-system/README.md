@@ -2,7 +2,7 @@
 
 ## **1. High-Level Payment Flow**
 
-1. \*\*PCI-compliances
+1. **PCI-compliances**
 
    - To make sure we follow global security standard designed to protect cardholder data, sensitive data will not be
      transmitted or saved anywhere other than the chosen payment provider
