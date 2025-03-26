@@ -10,6 +10,13 @@ We use Supabase edge functions to send transactional email using AWS SES.
 - Install Deno plugins for your IDE.
 - Configure prettier settings to point to parent node project.
 
+### Available Functions
+
+#### reverse-string
+
+A simple function that reverses a provided string. See [reverse-string/README.md](./reverse-string/README.md) for
+detailed documentation.
+
 ### Running the Function
 
 In the root of the project, run the following:
@@ -21,6 +28,15 @@ $ supabase functions serve my-function --env-file ./supabase/functions/.env.loca
 You can only run one function at a time.
 
 Then, you can execute the function with the curl command given in the function itself.
+
+### Testing Functions
+
+To run tests for the functions:
+
+```shell
+$ cd supabase/functions
+$ deno test tests/
+```
 
 ### Deploying to Production
 
